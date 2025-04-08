@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madi-IsabelJulianRocha/Portafolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-dorado: #DAB856;
+            --color-terracota: #D96F55;
+            --color-miel: #D99E55;
+            --color-rojo-andino: #D95855;
+            --color-beige-claro: #DBCCAB;
+            --color-beige: #DBBDAB;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--color-beige-claro);
+            color: #333;
+        }
+        
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .bg-dorado {
+            background-color: var(--color-dorado);
+        }
+        
+        .bg-terracota {
+            background-color: var(--color-terracota);
+        }
+        
+        .text-miel {
+            color: var(--color-miel);
+        }
+        
+        .text-rojo-andino {
+            color: var(--color-rojo-andino);
+        }
+        
+        .btn-gastronomico {
+            background-color: var(--color-rojo-andino);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            transition: all 0.3s;
+        }
+        
+        .btn-gastronomico:hover {
+            background-color: var(--color-terracota);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+        
+        .card-plato {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.4s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+        
+        .card-plato:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-plato img {
+            transition: transform 0.5s;
+        }
+        
+        .card-plato:hover img {
+            transform: scale(1.05);
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            color: var(--color-rojo-andino);
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(219, 189, 171, 0.8), rgba(219, 189, 171, 0.8)), url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .seccion-destacada {
+            background-color: white;
+            padding: 80px 0;
+        }
+        
+        .seccion-clara {
+            background-color: var(--color-beige-claro);
+            padding: 80px 0;
+        }
+        
+        .img-perfil {
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            max-height: 500px;
+            object-fit: cover;
+        }
+        
+        .img-sketch {
+            border-radius: 10px;
+            border: 10px solid white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .badge-andino {
+            background-color: var(--color-rojo-andino);
+            color: white;
+            font-weight: normal;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        
+        footer {
+            background-color: var(--color-rojo-andino);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            color: var(--color-dorado);
+            transform: translateY(-5px);
+        }
+        
+        /* Animaciones personalizadas */
+        .flotar {
+            animation: flotar 6s ease-in-out infinite;
+        }
+        
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .latido {
+            animation: latido 2s ease infinite;
+        }
+        
+        @keyframes latido {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="text-rojo-andino">Madi</span> <span class="text-miel">Julian</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre-mi">Sobre mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#postres">Postres</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#platos">Platos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#proceso">Mi Proceso</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 animate__animated animate__fadeInLeft">
+                    <h1 class="display-3 fw-bold mb-4">Cada plato cuenta <span class="text-rojo-andino">una historia</span></h1>
+                    <p class="lead mb-4">Soy Madi, estudiante de gastronomía en la Universidad del Valle, especializándome en cocina fusión con ingredientes andinos de Bolivia.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#postres" class="btn btn-gastronomico animate__animated animate__pulse animate__infinite">Ver mis postres</a>
+                        <a href="#platos" class="btn btn-outline-dark btn-lg">Explorar platos</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center animate__animated animate__fadeInRight">
+                    <img src="Css/images/foto6.jpg" alt="Madi" class="img-fluid img-perfil mt-5 mt-lg-0 flotar" style="max-width: 400px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section id="sobre-mi" class="seccion-destacada">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0 animate__animated animate__fadeInLeft">
+                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Madi trabajando" class="img-fluid rounded shadow-lg">
+                </div>
+                <div class="col-lg-7 animate__animated animate__fadeInRight">
+                    <h2 class="fw-bold mb-4">Hola, soy <span class="text-rojo-andino">Madi</span></h2>
+                    <p class="lead text-miel mb-4">Estudiante de Gastronomía | Cocina Fusión Andina | Apasionada por los postres</p>
+                    
+                    <p>Actualmente cursando mi último semestre en la Universidad del Valle, donde he tenido el privilegio de participar en eventos importantes como representante estudiantil en convenios internacionales.</p>
+                    
+                    <p>Soy una fiel creyente de que cada plato debe contar una historia, especialmente cuando incorpora los sabores auténticos de mi tierra, Bolivia. Mi especialidad es crear postres dulces y salados que rinden homenaje a los ingredientes andinos tradicionales.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-start">
+                                <div class="me-3 text-rojo-andino">
+                                    <i class="fas fa-book fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Mi Cuaderno de Bocetos</h5>
+                                    <p>Diseño cuidadosamente cada emplatado en mi cuaderno antes de llevarlo a la cocina, asegurando que cada presentación cuente una historia visual.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-start">
+                                <div class="me-3 text-rojo-andino">
+                                    <i class="fas fa-globe-americas fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Fusión Andina</h5>
+                                    <p>Combino técnicas modernas con ingredientes tradicionales bolivianos, creando una experiencia gastronómica única que honra mis raíces.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Postres -->
+    <section id="postres" class="seccion-clara">
+        <div class="container">
+            <div class="text-center mb-5 animate__animated animate__fadeInDown">
+                <h2 class="fw-bold">Mis <span class="text-rojo-andino">Postres</span></h2>
+                <p class="lead">Creaciones dulces que celebran los sabores andinos</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Postre 1 -->
+                <div class="col-md-4 animate__animated animate__fadeInUp">
+                    <div class="card card-plato h-100">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img-top" alt="Postre de Quinua">
+                        <div class="card-body">
+                            <span class="badge-andino mb-2">Postre Andino</span>
+                            <h4 class="card-title">Mousse de Quinua Real</h4>
+                            <p class="card-text">Un delicado mousse que combina la quinua real boliviana con chocolate de altura, coronado con frutos nativos deshidratados.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <small class="text-muted">Inspirado en los campos de quinua del Altiplano</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Postre 2 -->
+                <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="card card-plato h-100">
+                        <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img-top" alt="Trufas de Lucuma">
+                        <div class="card-body">
+                            <span class="badge-andino mb-2">Fusión Dulce</span>
+                            <h4 class="card-title">Trufas de Lúcuma y Cacao</h4>
+                            <p class="card-text">Trufas suaves que mezclan la dulzura de la lúcuma con la intensidad del cacao boliviano, envueltas en oro comestible.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <small class="text-muted">Homenaje a los valles de Cochabamba</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Postre 3 -->
+                <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="card card-plato h-100">
+                        <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Cheesecake de Tarwi">
+                        <div class="card-body">
+                            <span class="badge-andino mb-2">Innovación</span>
+                            <h4 class="card-title">Cheesecake de Tarwi</h4>
+                            <p class="card-text">Una versión andina del clásico cheesecake, utilizando tarwi (chocho) en la base y miel de caña como endulzante.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <small class="text-muted">Reinterpretando un clásico con ingredientes locales</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5 animate__animated animate__fadeIn">
+                <a href="#platos" class="btn btn-gastronomico latido">Ver mis platos salados <i class="fas fa-arrow-down ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Platos Salados -->
+    <section id="platos" class="seccion-destacada">
+        <div class="container">
+            <div class="text-center mb-5 animate__animated animate__fadeInDown">
+                <h2 class="fw-bold">Mis <span class="text-rojo-andino">Platos</span></h2>
+                <p class="lead">Creaciones saladas que elevan la cocina tradicional boliviana</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Plato 1 -->
+                <div class="col-md-4 animate__animated animate__fadeInUp">
+                    <div class="card card-plato h-100">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img-top" alt="Plato de Choclo">
+                        <div class="card-body">
+                            <span class="badge-andino mb-2">Fusión Andina</span>
+                            <h4 class="card-title">Risotto de Choclo con Queso Andino</h4>
+                            <p class="card-text">Una reinterpretación del risotto italiano utilizando choclo boliviano y quesos de la región, con toques de huacataya.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <small class="text-muted">Presentado en el Encuentro Gastronómico Internacional 2023</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Plato 2 -->
+                <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="card card-plato h-100">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img-top" alt="Ensalada Andina">
+                        <div class="card-body">
+                            <span class="badge-andino mb-2">Saludable</span>
+                            <h4 class="card-title">Ensalada de Quinua Negra</h4>
+                            <p class="card-text">Una explosión de texturas con quinua negra, aguaymanto, pepino andino y aderezo de tumbo, presentada en hoja de plátano.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <small class="text-muted">Premiada en el Concurso Universitario de Cocina Saludable</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Plato 3 -->
+                <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="card card-plato h-100">
+                        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img-top" alt="Sopa de Maní">
+                        <div class="card-body">
+                            <span class="badge-andino mb-2">Tradición Reinventada</span>
+                            <h4 class="card-title">Sopa de Maní Deconstruida</h4>
+                            <p class="card-text">Una versión moderna de la clásica sopa de maní, presentada en tres texturas con crujientes de chuño y espuma de hierbas andinas.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <small class="text-muted">Desarrollado para el evento "Raíces Gastronómicas"</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mi Proceso Creativo -->
+    <section id="proceso" class="seccion-clara">
+        <div class="container">
+            <div class="text-center mb-5 animate__animated animate__fadeInDown">
+                <h2 class="fw-bold">Mi <span class="text-rojo-andino">Proceso</span></h2>
+                <p class="lead">Desde el boceto hasta el plato terminado</p>
+            </div>
+            
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 animate__animated animate__fadeInLeft">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1458682625221-3a45f8a844c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Bocetos" class="img-fluid rounded mb-3 img-sketch">
+                            <h4 class="text-center">Bocetos</h4>
+                            <p class="text-center">Cada plato comienza como un dibujo en mi cuaderno, donde exploro composiciones visuales y armonías de color.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Ingredientes" class="img-fluid rounded mb-3 img-sketch">
+                            <h4 class="text-center">Selección de Ingredientes</h4>
+                            <p class="text-center">Busco los mejores ingredientes andinos, priorizando productores locales y métodos tradicionales de cultivo.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 animate__animated animate__fadeInRight">
+                    <div class="ps-lg-5">
+                        <h3 class="mb-4">Cómo nacen mis creaciones</h3>
+                        <p>Mi proceso creativo es un viaje que comienza con la inspiración en las tradiciones culinarias de Bolivia y termina con una presentación que cuenta una historia.</p>
+                        
+                        <div class="d-flex mt-4 mb-3">
+                            <div class="me-3 text-rojo-andino">
+                                <i class="fas fa-seedling fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Inspiración Andina</h5>
+                                <p>Investigo recetas tradicionales, técnicas ancestrales y los significados culturales detrás de los ingredientes.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex mb-3">
+                            <div class="me-3 text-rojo-andino">
+                                <i class="fas fa-pencil-alt fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Diseño del Emplatado</h5>
+                                <p>Dibujo múltiples versiones hasta encontrar la presentación perfecta que transmita la esencia del plato.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex">
+                            <div class="me-3 text-rojo-andino">
+                                <i class="fas fa-utensils fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Pruebas y Ajustes</h5>
+                                <p>Experimento con diferentes combinaciones hasta lograr el equilibrio perfecto entre sabor, textura y presentación.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="seccion-destacada">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center animate__animated animate__fadeInDown">
+                    <h2 class="fw-bold mb-4">Trabajemos <span class="text-rojo-andino">juntos</span></h2>
+                    <p class="lead mb-5">¿Interesado en mi enfoque gastronómico? Contáctame para oportunidades profesionales, colaboraciones o simplemente para hablar de comida.</p>
+                </div>
+            </div>
+            
+            <div class="row g-5">
+                <div class="col-lg-6 animate__animated animate__fadeInLeft">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="asunto" class="form-label">Asunto</label>
+                                <input type="text" class="form-control" id="asunto" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="mensaje" class="form-label">Mensaje</label>
+                                <textarea class="form-control" id="mensaje" rows="5" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-gastronomico">Enviar mensaje</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="col-lg-6 animate__animated animate__fadeInRight">
+                    <div class="ps-lg-5">
+                        <h4 class="mb-4">Información de contacto</h4>
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="me-3 text-rojo-andino">
+                                <i class="fas fa-envelope fa-lg"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p class="mb-0">madi.gastronomia@ejemplo.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="me-3 text-rojo-andino">
+                                <i class="fas fa-phone fa-lg"></i>
+                            </div>
+                            <div>
+                                <h5>Teléfono</h5>
+                                <p class="mb-0">+591 XX XXX XXXX</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="me-3 text-rojo-andino">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                            </div>
+                            <div>
+                                <h5>Ubicación</h5>
+                                <p class="mb-0">Cochabamba, Bolivia</p>
+                            </div>
+                        </div>
+                        
+                        <h4 class="mt-5 mb-3">Sígueme</h4>
+                        <div class="d-flex">
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="mb-4">
+                <a href="#" class="navbar-brand text-white">
+                    <span>Madi</span> <span class="text-miel">Gastronomía</span>
+                </a>
+            </div>
+            <p class="mb-4">Cada plato cuenta una historia, y cada historia merece ser saboreada.</p>
+            <p class="mb-0">© <span id="year"></span> Madi. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Año actual en el footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Animaciones al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate__animated');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(entry.target.dataset.animate);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Smooth scrolling para enlaces internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
